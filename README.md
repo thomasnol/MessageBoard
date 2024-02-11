@@ -5,7 +5,6 @@ To run after changing the models:
 docker-compose exec backend aerich migrate
 docker-compose exec backend aerich upgrade
 
-TechStack
 Frontend package.json Dependencies:
 axios, bootstrap, core-js, vue, vue-router, vuex
 
