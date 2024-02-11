@@ -17,7 +17,7 @@ import { defineComponent } from 'vue';
 import { mapGetters, mapActions } from 'vuex';
 
 export default defineComponent({
-  name: 'Message',
+  name: 'MessageView',
   props: ['id'],
   async created() {
     try {

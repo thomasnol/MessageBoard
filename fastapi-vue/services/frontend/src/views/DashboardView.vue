@@ -7,15 +7,13 @@
       <form @submit.prevent="submit">
         <div class="mb-3">
           <label for="title" class="form-label">Title:</label>
-          <input type="text" name="title" v-model="form.title" class="form-control" />
+          <!-- <div v-if="form.title !== null"> -->
+            <input type="text" name="title" v-model="form.title" class="form-control" />
+          <!-- </div> -->
         </div>
         <div class="mb-3">
           <label for="content" class="form-label">Content:</label>
-          <textarea
-            name="content"
-            v-model="form.content"
-            class="form-control"
-          ></textarea>
+          <textarea name="content" v-model="form.content" class="form-control"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -27,18 +25,20 @@
       <h1>Messages</h1>
       <hr/><br/>
 
-      <div v-if="messages.length !== null && messages.length > 0">
-        <div v-for="message in messages" :key="message.id" class="messages">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <ul>
-                <li><strong>Message Title:</strong> {{ message.title }}</li>
-                <li><strong>Author:</strong> {{ message.author.username }}</li>
-                <li><router-link :to="{name: 'Message', params:{id: message.id}}">View</router-link></li>
-              </ul>
+      <div v-if="messages">
+        <div v-if="messages.length">
+          <div v-for="message in messages" :key="message.id" class="messages">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <ul>
+                  <li><strong>Message Title:</strong> {{ message.title }}</li>
+                  <li><strong>Author:</strong> {{ message.author.username }}</li>
+                  <li><router-link :to="{name: 'Message', params:{id: message.id}}">View</router-link></li>
+                </ul>
+              </div>
             </div>
+            <br/>
           </div>
-          <br/>
         </div>
       </div>
 
