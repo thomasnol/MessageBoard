@@ -4,6 +4,8 @@ A full-stack Create, Read, Update, Delete(CRUD) message board application, where
 # How to run it
 To run the docker instance, once the docker server is running:
 
+cd fastapi-vue
+
 docker-compose up -d --build
 
 Then visit: http://localhost:8080/
