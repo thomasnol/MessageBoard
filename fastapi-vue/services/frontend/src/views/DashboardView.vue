@@ -52,17 +52,11 @@
       <form @submit.prevent="submitForm2">
         <div class="mb-3">
           <label for="numWords" class="form-label">Number of Words:</label>
-          <textarea name="numWords" v-model="form2.numWords" class="form-control">5</textarea>
+          <textarea name="numWords" v-model="form2.numWords" class="form-control"></textarea>
         </div>
         <div class="mb-3">
-          <label for="outputArea" class="form-label">Results:</label>
-          <div v-if="words">
-            <label for="outputArea" class="form-label">Most Common Words and their Associated Frequency:</label>
-            <textarea readonly name="outputArea" v-model="words" class="form-control"></textarea>
-          </div>
-          <div v-else>
-            <textarea readonly name="outputArea" class="form-control"></textarea>
-          </div>
+          <label for="outputArea" class="form-label">Most Common Words and their Associated Frequencies:</label>
+          <span readonly name="outputArea" class="textarea form-control" role="textbox" style="white-space: pre-wrap;">{{ words }}</span>
         </div>
         <button type="submit" class="btn btn-primary">Run Query</button>
       </form>
@@ -83,7 +77,7 @@ export default defineComponent({
         content: '',
       },
       form2: {
-        numWords: '',
+        numWords: '999',
       },
     };
   },
