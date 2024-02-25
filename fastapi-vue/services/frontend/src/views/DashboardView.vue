@@ -4,12 +4,10 @@
       <h1>Add new message</h1>
       <hr/><br/>
 
-      <form @submit.prevent="submit">
+      <form @submit.prevent="submitForm1">
         <div class="mb-3">
           <label for="title" class="form-label">Title:</label>
-          <!-- <div v-if="form.title !== null"> -->
-            <input type="text" name="title" v-model="form.title" class="form-control" />
-          <!-- </div> -->
+          <input type="text" name="title" v-model="form.title" class="form-control" />
         </div>
         <div class="mb-3">
           <label for="content" class="form-label">Content:</label>
@@ -46,6 +44,29 @@
         <p>Nothing to see. Check back later.</p>
       </div>
     </section>
+
+    <section>
+      <h1>Count Most Frequent Words In All Messages</h1>
+      <hr/><br/>
+
+      <form @submit.prevent="submitForm2">
+        <div class="mb-3">
+          <label for="numWords" class="form-label">Number of Words:</label>
+          <textarea name="numWords" v-model="form2.numWords" class="form-control">5</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="outputArea" class="form-label">Results:</label>
+          <div v-if="words">
+            <label for="outputArea" class="form-label">Most Common Words and their Associated Frequency:</label>
+            <textarea readonly name="outputArea" v-model="words" class="form-control"></textarea>
+          </div>
+          <div v-else>
+            <textarea readonly name="outputArea" class="form-control"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Run Query</button>
+      </form>
+    </section>
   </div>
 </template>
 
@@ -61,6 +82,9 @@ export default defineComponent({
         title: '',
         content: '',
       },
+      form2: {
+        numWords: '',
+      },
     };
   },
   created: function() {
@@ -68,11 +92,16 @@ export default defineComponent({
   },
   computed: {
     ...mapGetters({ messages: 'stateMessages'}),
+    ...mapGetters({ words: 'stateWords'}),
   },
   methods: {
     ...mapActions(['createMessage']),
-    async submit() {
+    async submitForm1() {
       await this.createMessage(this.form);
+    },
+    ...mapActions(['getFreqWords']),
+    async submitForm2() {
+      await this.getFreqWords(this.form2.numWords);
     },
   },
 });
