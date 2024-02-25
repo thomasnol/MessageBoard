@@ -33,13 +33,6 @@ const actions = {
       withCredentials: false,
     });
     commit('setWords', data);
-    // .then(response => {
-    //   console.log(response.data)
-    //   commit('setWords', data);
-    // })
-    // .catch(error => {
-    //   console.error(error);
-    // });
   },
   async viewMessage({commit}, id) {
     let {data} = await axios.get(`message/${id}`);
