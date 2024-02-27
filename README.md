@@ -1,5 +1,5 @@
 # What the project is
-A full-stack Create, Read, Update, Delete(CRUD) message board application, where visitors can do CRUD operations on accounts and messages.
+A full-stack Create, Read, Update, Delete(CRUD) message board application, where visitors can do CRUD operations on accounts and messages. Includes a word frequency counter powered by AWS Lambda & API Gateway.
 
 # How to run it
 To run the docker instance, once the docker server is running:
@@ -18,7 +18,7 @@ docker-compose exec backend aerich upgrade
 
 # General Technologies
 
-FastAPI, Vue, Docker and PostgreSQL
+FastAPI, Vue.js, Docker, PostgreSQL and AWS Lambda & API Gateway
 
 # All Dependencies/Requirements
 Frontend package.json Dependencies:
