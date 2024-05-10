@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# extra stuff
+/fastapi-vue/services/backend/src/__pycache__
